@@ -1,0 +1,182 @@
+html,
+body,
+#canvas {
+    height: 100%;
+}
+
+body,
+#canvas {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#canvas {
+    font-size: 10px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.header {
+    height: 26px;
+    padding: 4px;
+    position: absolute;
+    width: 100%;
+}
+
+.header > .valign-wrapper {
+    height: 100%;
+}
+
+.header > .valign-wrapper > .valign {
+    width: 100%;
+}
+
+.header a {
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.header a:hover {
+    color: orange !important;
+}
+
+.header .controls {
+    display: none;
+}
+
+.header:hover .controls {
+    display: block;
+    width: 100%;
+}
+
+.header:hover .valign {
+    display: none;
+}
+
+.body {
+    height: 100%;
+    padding-top: 26px;
+}
+
+.node {
+    margin: 0;
+    padding: 6px 0 0 6px;
+    float: left;
+}
+
+.node:last-child {
+    padding-right: 6px;
+    padding-bottom: 6px;
+}
+
+.card {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.header.selected {
+    background-color: orange !important;
+}
+
+h5 {
+    margin: 0;
+}
+
+.leaf-red {
+    background-color: #B04632;
+}
+
+.level-0 > .header {
+    height: 66px;
+    font-size: 28px;
+}
+
+.level-0 > .body {
+    padding-top: 66px;
+}
+
+.level-1 > .header {
+    height: 50px;
+    font-size: 24px;
+}
+
+.level-1 > .body {
+    padding-top: 50px;
+}
+
+.level-2 > .header {
+    height: 40px;
+    font-size: 18px;
+}
+
+.level-2 > .body {
+    padding-top: 40px;
+}
+
+.level-3 > .header {
+    height: 32px;
+    font-size: 14px;
+}
+
+.level-3 > .body {
+    padding-top: 32px;
+}
+
+/* Dimensions */
+
+.full {
+    width: 100%;
+    height: 100%;
+}
+
+.hori-2 {
+    width: 50%;
+    height: 100%;
+    padding-bottom: 6px;
+}
+
+.vert-2 {
+    width: 100%;
+    height: 50%;
+    padding-right: 6px;
+}
+
+.hori-3 {
+    width: calc(100% / 3);
+    height: 100%;
+    padding-bottom: 6px;
+}
+
+.vert-3 {
+    width: 100%;
+    height: calc(100% / 3);
+    padding-right: 6px;
+}
+
+.hori-4 {
+    width: 25%;
+    height: 100%;
+    padding-bottom: 6px;
+}
+
+.vert-4 {
+    width: 100%;
+    height: 25%;
+    padding-right: 6px;
+}
+
+.square-4 {
+    width: 50%;
+    height: 50%;
+}
