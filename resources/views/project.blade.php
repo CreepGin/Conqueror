@@ -22,7 +22,7 @@
     <script type="text/x-template" id="node-template">
         <div class="@{{dimension}}">
             <div class="card level-@{{model.level}}" v-on="click: cardClick">
-                <div class="header darken-4 white-text" v-class="leaf-red: isLeaf, blue-grey: !isLeaf, selected: model.targeting">
+                <div class="header darken-4 white-text" v-class="leaf-red: isLeaf, blue-grey: !isLeaf, selected: model.targeting, tooltipped: model.body" data-position="bottom" data-delay="0" data-tooltip="@{{model.body}}">
                     <div class="valign-wrapper">
                         <div class="valign center-align">@{{model.name}} @{{parseInt(completed * 100)}}%</div>
                         <div class="controls center-align">
@@ -51,14 +51,19 @@
     <div id="editModal" class="modal">
         <div class="modal-content" v-show="node">
             <div class="row">
-                <div class="input-field col s12">
-                    <input id="name" type="text" v-on="keyup:submit | key 'enter'" v-model="newName">
+                <div class="col m10">
                     <label for="name">Name</label>
+                    <input id="name" type="text" v-on="keyup:submit | key 'enter'" v-model="newName">
+                </div>
+                <div class="col m2">
+                    <label for="completion">Completion</label>
+                    <input type="number" id="completion" min="0" max="100" v-on="keyup:submit | key 'enter'" v-model="newCompletion" />
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col m2">
-                    <input type="number" id="completion" min="0" max="100" v-on="keyup:submit | key 'enter'" v-model="newCompletion" />
+                <div class="col m12">
+                    <label for="body">Notes</label>
+                    <textarea name="body" id="body" class="materialize-textarea" v-model="newBody"></textarea>
                 </div>
             </div>
         </div>

@@ -124,6 +124,7 @@ Vue.component('node', {
         	editModalData.node = this.model;
         	editModalData.newName = this.model.name;
         	editModalData.newCompletion = this.model.completion * 100;
+        	editModalData.newBody = this.model.body;
             $('#editModal').openModal({
             	ready: function(){
             		$("#name").focus();
@@ -202,7 +203,7 @@ Vue.component('node', {
 var canvas = new Vue({
     el: '#canvas',
     data: {
-        treeData: nodes[0]
+        treeData: rootNode
     },
     events: {
         'hook:ready': function() {
@@ -237,7 +238,8 @@ function clearTarget() {
 var editModalData = {
     node: null,
     newName: null,
-    newCompletion: null
+    newCompletion: null,
+    newBody: null,
 };
 var editModal = new Vue({
     el: '#editModal',
@@ -248,12 +250,16 @@ var editModal = new Vue({
     		var id = this.node.id;
     		var newName = this.newName;
     		var newCompletion = this.newCompletion / 100;
+    		var newBody = this.newBody;
     		updateNode(id, {
                 name: newName,
-                completion: newCompletion
+                completion: newCompletion,
+                body: newBody,
             }, function() {
                 node.name = newName;
                 node.completion = newCompletion;
+                node.body = newBody;
+                window.location.reload(true);
             });
     		$("#editModal").closeModal();
     	}
